@@ -6,3 +6,5 @@ The following additional attribute is stored for the widget:
 To setup the app, run the virtualenv AWeber_Assessment. then get the files from this repository
 
 The requirements.txt file is included.
+
+Script passes the flake8 and bandit security analysis.
