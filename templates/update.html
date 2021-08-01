@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+    <div class="content">
+        <h1 style="text-align: center">Update Widget</h1>
+
+        <br>
+        <form style="text-align: center" action="/update/{{widget.id}}" method="POST">
+            <strong>Description: </strong>
+            <input type="text" name="widget" placeholder="Widget description" id="widget"
+                   value="{{ widget.name }}"><br>
+            <strong>Num of parts: </strong><input type="number" placeholder="number of pieces"
+                                                  name="parts" id="parts" value="{{ widget.num_parts }}"><br>
+            <strong>Warehouse Location</strong><input type="text" placeholder="row,[col,[shelf]]"
+                                                      name="row_location" id="row_location"
+                                                      value="{{ widget.row_location }}">
+            <br><br>
+            <input type="submit" value="Update Widget">
+        </form>
+    </div>
+
+{% endblock %}

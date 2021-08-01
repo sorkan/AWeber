@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+    <div class="content">
+        <h1 style="text-align: center">Widgets Factory</h1>
+
+        {% if widgets | length < 1 %}
+            <h4 style="text-align: center">There are no Widgets in the inventory!!  Please add below.</h4>
+        {% else %}
+            <table align="center">
+                <tr>
+                    <th>Description</th>
+                    <th>In stock</th>
+                    <th>Location</th>
+                    <th>Added on</th>
+                    <th>Updated on</th>
+                    <th>Action</th>
+                </tr>
+                {% for widget in widgets %}
+                    <tr>
+                        <td>{{ widget.name }}</td>
+                        <td>{{ widget.num_parts }}</td>
+                        <td>{{ widget.row_location }}</td>
+                        <td>{{ widget.created_date.date() }}</td>
+                        <td>{{ widget.update_date.date() }}</td>
+                        <td>
+                            <a href="/update/{{ widget.id }}">Update</a>
+                            <br>
+                            <a href="/delete/{{ widget.id }}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+
+        <br>
+        <hr>
+        <br>
+        <div style="text-align: center">
+            <a href="/add"><strong>Add new widget</strong></a>
+        </div>
+    </div>
+
+{% endblock %}
